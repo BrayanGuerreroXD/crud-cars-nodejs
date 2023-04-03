@@ -37,6 +37,7 @@ export const getCar = async (req, res) => {
 export const createCar = async (req, res) => {
     try {
         const { name, badge, motor_serial } = req.body;
+        parseInt(motor_serial);
         const [rows] = await pool.query(
         "INSERT INTO cars (name, badge, motor_serial) VALUES (?, ?, ?)",
         [name, badge, motor_serial]
